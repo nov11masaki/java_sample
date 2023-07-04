@@ -28,6 +28,10 @@ public class Mutter{
         return this.text;
     }
 
+    public Integer getId(){
+        return this.id;
+    }
+
     public void insert() {
         Repository.insert(this);
     }
@@ -40,5 +44,8 @@ public class Mutter{
         return Repository.indexMutters();
     }
     
+    public void delete(){
+        Repository.delete(this);
+    }
     
 }

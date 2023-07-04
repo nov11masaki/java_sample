@@ -48,6 +48,7 @@ public class Repository{
             // rsがある限り保存
             while (rs.next()) {
                 Mutter mutter = new Mutter(
+                        Integer.parseInt(rs.getString("id")) , // idを追加
                         rs.getString("name"),
                         rs.getString("text")
                 );
@@ -86,6 +87,7 @@ public class Repository{
             // rsがある限り保存
             while (rs.next()) {
                 Mutter mutter = new Mutter(
+                        Integer.parseInt(rs.getString("id")),
                         rs.getString("name"),
                         rs.getString("text")
                 );
@@ -99,6 +101,26 @@ public class Repository{
             return null;
         } finally {
             Client.close(connection, stmt, rs);
+        }
+    }
+
+    public static void delete(Mutter mutter){
+        Connection connection = null;
+        PreparedStatement stmt = null;
+
+        try{
+            String sql = "DELETE from mutters where id = ?";
+
+            connection = Client.create();
+
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,mutter.getId());
+
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            Client.close(connection, stmt,null);
         }
     }
 }
