@@ -30,7 +30,7 @@ ${currentUser.name}さんこんにちは。<br>
             ${mutter.text}<br>
         </div>
         <c:if test="${mutter.name == currentUser.name}">
-            <!-- <a href="/mutter/read">編集</a> -->
+            <a href="/mutter/edit?id=${Integer.toString(mutter.id)}">編集</a> 
             <a href="/mutter/delete?id=${Integer.toString(mutter.id)}">削除</a>
         </c:if> 
     </div>
