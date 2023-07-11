@@ -123,4 +123,26 @@ public class Repository{
             Client.close(connection, stmt,null);
         }
     }
+
+public static void edit(Mutter mutter){
+    Connection connection = null;
+    PreparedStatement stmt = null;
+    System.out.println("edit");
+
+    try{
+        String sql = "UPDATE mutters set text  = ?  where id=?";
+
+        connection = Client.create();
+
+        stmt = connection.prepareStatement(sql);
+        stmt.setString(1,mutter.getText());
+        stmt.setInt(2,mutter.getId());
+        stmt.executeUpdate();
+
+    }catch (SQLException e){
+        e.printStackTrace();
+    }finally {
+        Client.close(connection, stmt,null);
+    }
+ }
 }
