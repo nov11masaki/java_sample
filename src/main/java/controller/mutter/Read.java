@@ -27,6 +27,12 @@ public class Read extends HttpServlet{
         // セッションスコープからログイン済みユーザーを取り出す
         User user = (User) session.getAttribute("currentUser");
 
+        // ログインできていなければログイン画面へ
+        if(user == null){
+            resp.sendRedirect("/index");
+            return;
+        }
+
         // パラメーターを取得
         String name = req.getParameter("name");
 
