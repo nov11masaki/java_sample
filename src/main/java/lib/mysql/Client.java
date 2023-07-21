@@ -10,7 +10,7 @@ public class Client {
 	private final static String HOST_NAME = "db";
 
 	// ここを自分のデータベース名にする
-	private final static String DATABASE_NAME = "dokotsubu";
+	private final static String DATABASE_NAME = "degitalnote";
 	private final static String USER_NAME = "root";
 	private final static String PASSWORD = "root";
 	private final static String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
